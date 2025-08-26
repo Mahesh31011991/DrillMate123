@@ -9,9 +9,15 @@ import SwiftUI
 
 @main
 struct DrillMate123App: App {
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    
     var body: some Scene {
-        WindowGroup {
-            ContentView()
+        WindowGroup{
+                LoginView()
+                    .onAppear{
+                        NotificationManager.shared.requestAuthorization()
+                    }
+            
         }
     }
 }
